@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Веб-технологии — Лабораторная работа №2</title>
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+<header>
+    <div>
+        <a href="#">
+            <img src="public/icons/Logo.svg" alt="Логотип ЖК «Новый Лесснер»">
+        </a>
+        <a href="#" aria-label="Меню">
+            <img src="public/icons/Burger_Icon.svg" alt="Меню">
+        </a>
+    </div>
+
+    <a href="#" class="mobile-logo">
+        <img src="public/icons/Logo.svg" alt="Логотип ЖК «Новый Лесснер»">
+    </a>
+
+    <nav>
+        <ul>
+            <li><a href="#" aria-current="page">о проекте</a></li>
+            <li><a href="#">расположение</a></li>
+            <li><a href="#">как купить</a></li>
+            <li><a href="#">о застройщике</a></li>
+        </ul>
+    </nav>
+
+    <div>
+        <a href="tel:+78125610375">
+            <img src="public/icons/Enter_Icon.svg" alt="">
+            <span>
+                <b>812 561-03-75</b>
+                <small>заказать звонок</small>
+            </span>
+        </a>
+        <button type="button" id="open-modal">
+            ВЫБРАТЬ КВАРТИРУ
+            <img src="public/icons/Link_Icon.svg" alt="">
+        </button>
+    </div>
+</header>
+
+<main>
+    <nav aria-label="Хлебные крошки">
+        <span>главная / <strong>о проекте</strong></span>
+    </nav>
+
+    <h1>о проекте</h1>
+
+    <section>
+        <div>
+            <h2>строим проекты, <br>которым <mark>нет равных</mark></h2>
+
+            <picture class="mobile-image">
+                <source srcset="public/img/FirstScreen_Img_Mobile@1x.webp 1x, public/img/FirstScreen_Img_Mobile@2x.webp 2x" type="image/webp">
+                <img src="public/img/FirstScreen_Img_Mobile.jpg" alt="Интерьер мобильная версия">
+            </picture>
+
+            <p>Компания «Отделстрой» работает в сфере строительства в Санкт-Петербурге и области с 1994 года.</p>
+
+            <p>Мы счастливы предлагать людям и обществу комфортные условия для жизни. В нашем портфеле — более миллиона квадратных метров жилья и объектов социальной инфраструктуры. Нашими клиентам стали более 15 тысяч семей, которые получили квартиры в срок, либо досрочно.</p>
+
+            <div class="actions">
+                <button type="button">ВЫБРАТЬ КВАРТИРУ</button>
+                <a href="#">
+                    НАЙТИ БЛИЖАЙШИЙ ОФИС
+                    <img src="public/icons/Link_Icon_Dark.svg" alt="">
+                </a>
+            </div>
+        </div>
+
+        <figure>
+            <picture>
+                <source srcset="public/img/FirstScreen_Img@1x.webp 1x, public/img/FirstScreen_Img@2x.webp 2x" type="image/webp">
+                <img src="public/img/FirstScreen_Img.jpg" alt="Интерьер">
+            </picture>
+        </figure>
+    </section>
+
+    <section>
+        <h2>история в цифрах</h2>
+        <ul>
+            <li>
+                <strong>150</strong>
+                <p>квартир на этаже</p>
+            </li>
+            <li>
+                <strong>300+</strong>
+                <p>реализованных<br>проектов</p>
+            </li>
+        </ul>
+    </section>
+</main>
+
+<footer>
+    <div>
+        <p>Вся информация на сайте носит справочный характер и не является публичной офертой, согласно статье 437 ГК РФ. Использование материалов с сайта newlessner.ru не допускается без письменного разрешения ООО «Специализированный застройщик «Отделстрой»</p>
+        <p>© ООО «Специализированный застройщик «Отделстрой» 2023</p>
+        <p>Создание сайта — М18</p>
+    </div>
+
+    <div>
+        <address>
+            <a href="https://yandex.ru/maps/-/CDDeVDLK">
+                Санкт-Петербург,<br>Светлановский пр., д. 115, корп. 1
+            </a>
+        </address>
+        <a href="tel:+78125612736">(812) 561-27-36</a>
+
+        <ul>
+            <li><a href="#" aria-label="Telegram"><img src="public/icons/Tg_Icon.svg" alt=""></a></li>
+            <li><a href="#" aria-label="Дзен"><img src="public/icons/Dzen_Icon.svg" alt=""></a></li>
+            <li><a href="#" aria-label="Одноклассники"><img src="public/icons/OK_Icon.svg" alt=""></a></li>
+            <li><a href="#" aria-label="ВКонтакте"><img src="public/icons/VK_Icon.svg" alt=""></a></li>
+        </ul>
+    </div>
+</footer>
+
+<dialog id="modal">
+    <button type="button" id="close-modal" aria-label="Закрыть">
+        <img src="public/icons/Close_Icon.svg" alt="">
+    </button>
+
+    <div id="form-incomplete">
+        <h2>заказать <mark>звонок</mark></h2>
+        <p>Персональный менеджер ответит<br>на все вопросы и подготовит для вас индивидуальное предложение.</p>
+        <form>
+            <input type="text" placeholder="Имя" required>
+            <input type="tel" placeholder="Телефон" required>
+            <label>
+                <input type="checkbox" required>
+                <span>Согласие на обработку <mark>персональных данных</mark></span>
+            </label>
+            <button type="submit">
+                ОТПРАВИТЬ
+                <img src="public/icons/Link_Icon.svg" alt="">
+            </button>
+        </form>
+    </div>
+
+    <div id="form-complete" style="display: none;">
+        <h2>заказать <mark>звонок</mark></h2>
+        <p>Спасибо! Наш менеджер свяжется с вами в ближайшее время.</p>
+    </div>
+</dialog>
+
+<script src="scripts/main.js"></script>
+</body>
+</html>
