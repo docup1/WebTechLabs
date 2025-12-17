@@ -197,7 +197,6 @@ main > section:first-of-type h2 {
     font-size: 44px;
     font-weight: normal;
     line-height: 1;
-    margin: 0 0 48px 0;
 }
 
 mark {
@@ -270,20 +269,18 @@ main > section:nth-of-type(2) {
 main > section:nth-of-type(2) h2 {
     font-size: 44px;
     font-weight: normal;
-    margin: 0 auto 0 0;
+    width: 50%;
 }
 
 main > section:nth-of-type(2) ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin-left: 0;
     display: flex;
     gap: 160px; /* Отступ между элементами */
 }
 
-main > section:nth-of-type(2) li {
-    display: block;
-}
+
 
 main > section:nth-of-type(2) strong {
     display: block;
@@ -353,8 +350,8 @@ dialog {
     background: transparent;
     width: 550px;
     min-height: 100%;
-    margin-left: auto; /* Прижимаем вправо */
-    margin-right: 0;
+    left: auto; /* Прижимаем вправо */
+    right: 0;
     top: 0;
 }
 
@@ -437,12 +434,8 @@ dialog form button {
 }
 dialog form button img { margin-left: 16px; }
 
-section > ul{
-
-}
-
 /* --- АДАПТИВНОСТЬ (Mobile) --- */
-@media (max-width: 768px) {
+@media (max-width: 1380px){
     header {
         padding: 14px 16px;
         margin-bottom: 48px;
@@ -462,6 +455,16 @@ section > ul{
     /* Телефон */
     header > div:last-child b { font-size: 12px; }
     header > div:last-child a { gap: 0; }
+
+    main > section {
+        flex-direction: column;
+    }
+    picture{
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
 
     main { padding: 0 16px; }
     main > h1 { font-size: 32px; margin-bottom: 64px; }
