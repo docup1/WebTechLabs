@@ -181,18 +181,18 @@ main > h1 {
     margin: 0 0 88px 0;
 }
 
-/* СЕКЦИЯ 1: HERO (First child of main section) */
-main > section:first-of-type {
+/* СЕКЦИЯ HERO */
+.hero {
     display: flex;
     justify-content: space-between;
     margin-bottom: 88px;
 }
 
-main > section:first-of-type > div:first-child {
+.hero > div:first-child {
     max-width: 558px;
 }
 
-main > section:first-of-type h2 {
+.hero h2 {
     font-family: var(--font-display);
     font-size: 44px;
     font-weight: normal;
@@ -205,12 +205,12 @@ mark {
 }
 
 /* Скрываем мобильную картинку на десктопе */
-main > section:first-of-type .mobile-image {
+.hero .mobile-image {
     display: none;
 }
 
 /* Параграф-лид */
-main > section:first-of-type p:first-of-type {
+.hero p:first-of-type {
     font-size: 24px;
     font-weight: 700;
     line-height: 1.33;
@@ -219,7 +219,7 @@ main > section:first-of-type p:first-of-type {
 }
 
 /* Обычный текст */
-main > section:first-of-type p:nth-of-type(2) {
+.hero p:nth-of-type(2) {
     font-size: 22px;
     line-height: 1.27;
     font-weight: 300;
@@ -228,51 +228,51 @@ main > section:first-of-type p:nth-of-type(2) {
 }
 
 /* Блок кнопок внутри Hero */
-main > section:first-of-type .actions {
+.hero .actions {
     display: flex;
     align-items: center;
     gap: 32px;
 }
 
-main > section:first-of-type button {
+.hero button {
     background-color: var(--color-accent);
     color: var(--color-white);
     border-radius: 26px;
     padding: 14px 40px 12px;
     font-size: 16px;
 }
-main > section:first-of-type button:hover { opacity: 0.8; }
+.hero button:hover { opacity: 0.8; }
 
-main > section:first-of-type .actions a {
+.hero .actions a {
     color: var(--color-dark);
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 16px;
 }
-main > section:first-of-type .actions a:hover { opacity: 0.6; }
+.hero .actions a:hover { opacity: 0.6; }
 
 /* Картинка Hero */
-main > section:first-of-type figure {
+.hero figure {
     margin: 50px 0 0 0;
     min-width: 675px;
     position: relative;
 }
 
-/* СЕКЦИЯ 2: СТАТИСТИКА (Second child) */
-main > section:nth-of-type(2) {
+/* СЕКЦИЯ STATS */
+.stats {
     display: flex;
     margin-bottom: 88px;
     font-family: var(--font-display);
 }
 
-main > section:nth-of-type(2) h2 {
+.stats h2 {
     font-size: 44px;
     font-weight: normal;
     width: 50%;
 }
 
-main > section:nth-of-type(2) ul {
+.stats ul {
     list-style: none;
     padding: 0;
     margin-left: 0;
@@ -280,9 +280,7 @@ main > section:nth-of-type(2) ul {
     gap: 160px; /* Отступ между элементами */
 }
 
-
-
-main > section:nth-of-type(2) strong {
+.stats strong {
     display: block;
     font-size: 111px;
     font-weight: normal;
@@ -290,7 +288,7 @@ main > section:nth-of-type(2) strong {
     line-height: 1;
 }
 
-main > section:nth-of-type(2) p {
+.stats p {
     font-size: 26px;
     color: #646870;
     margin-top: 8px;
@@ -456,51 +454,58 @@ dialog form button img { margin-left: 16px; }
     header > div:last-child b { font-size: 12px; }
     header > div:last-child a { gap: 0; }
 
-    main > section {
+    .hero,
+    .stats {
         flex-direction: column;
     }
-    picture{
+
+    .hero figure { display: none; } /* Скрываем большую картинку */
+    .hero .mobile-image {
+        display: block;
+        margin: 0 -16px 32px; /* Вылет на края экрана */
+    }
+    picture {
+        display: none;
+    }
+    /* Псевдоэлементы для картинок */
+    picture::before,
+    picture::after {
         display: none;
     }
 }
 
 @media (max-width: 600px) {
-
     main { padding: 0 16px; }
     main > h1 { font-size: 32px; margin-bottom: 64px; }
 
     /* Hero */
-    main > section:first-of-type { flex-direction: column; margin-bottom: 64px; }
-    main > section:first-of-type h2 { font-size: 28px; margin-bottom: 32px; }
+    .hero { flex-direction: column; margin-bottom: 64px; }
+    .hero h2 { font-size: 28px; margin-bottom: 32px; }
 
-    main > section:first-of-type figure { display: none; } /* Скрываем большую картинку */
-    main > section:first-of-type .mobile-image {
-        display: block;
-        margin: 0 -16px 32px; /* Вылет на края экрана */
-    }
 
-    main > section:first-of-type p:first-of-type { font-size: 19px; }
-    main > section:first-of-type p:nth-of-type(2) { font-size: 18px; }
 
-    main > section:first-of-type .actions {
+    .hero p:first-of-type { font-size: 19px; }
+    .hero p:nth-of-type(2) { font-size: 18px; }
+
+    .hero .actions {
         flex-direction: column;
         align-items: flex-start;
     }
 
     /* Статистика */
-    main > section:nth-of-type(2) {
+    .stats {
         flex-direction: column;
         margin-bottom: 64px;
     }
-    main > section:nth-of-type(2) h2 { font-size: 28px; margin-bottom: 32px; }
+    .stats h2 { font-size: 28px; margin-bottom: 32px; }
 
-    main > section:nth-of-type(2) ul {
+    .stats ul {
         display: grid;
         grid-template-columns: 1fr 1fr; /* В два столбца */
         gap: 20px;
     }
-    main > section:nth-of-type(2) strong { font-size: 60px; }
-    main > section:nth-of-type(2) p { font-size: 20px; width: auto; }
+    .stats strong { font-size: 60px; }
+    .stats p { font-size: 20px; width: auto; }
 
     /* Футер */
     footer {
@@ -511,15 +516,5 @@ dialog form button img { margin-left: 16px; }
     footer > div:first-child { order: 2; margin-top: 40px; }
     footer > div:last-child { font-size: 15px; }
 
-    /* Первый квадрат (фиолетовый) - левый верхний */
-    picture::before {
-        display: none;
-    }
 
-    /* Второй квадрат (розово-красный) - правый нижний */
-    picture::after {
-        display: none;
-
-    }
 }
-
