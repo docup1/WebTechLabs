@@ -115,6 +115,49 @@ header button img { margin-left: 16px; }
 header button:hover { opacity: 0.8; }
 
 /* --- ОСНОВНОЙ КОНТЕНТ --- */
+
+picture {
+    position: relative;
+    display: block;
+    overflow: visible;
+}
+
+picture img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+}
+
+/* Псевдоэлементы создаются на picture, а не на img */
+picture::before,
+picture::after {
+    content: "";
+    position: absolute;
+    border-radius: 32px;
+    z-index: 0;
+}
+
+/* Первый квадрат (фиолетовый) - левый верхний */
+picture::before {
+    width: 100%;
+    height: 100%;
+    background: #DFEBEF;
+    bottom: 0;
+    right: 0;
+    transform: rotate(-10deg);
+}
+
+/* Второй квадрат (розово-красный) - правый нижний */
+picture::after {
+    width: 100%;
+    height: 100%;
+    background: #FBF0EA;
+    bottom: 0;
+    right: 0;
+    transform: rotate(-5deg);
+}
+
 main {
     padding: 0 36px;
 }
@@ -259,8 +302,9 @@ main > section:nth-of-type(2) p {
 
 /* --- ФУТЕР --- */
 footer {
-    margin-left: 15px;
-    margin-right: 15px;
+    position: absolute;
+    left: 0;
+    right: 0;
     background-color: var(--color-dark);
     color: #CFD0D3;
     border-radius: 48px 48px 0 0;
@@ -393,6 +437,10 @@ dialog form button {
 }
 dialog form button img { margin-left: 16px; }
 
+section > ul{
+
+}
+
 /* --- АДАПТИВНОСТЬ (Mobile) --- */
 @media (max-width: 768px) {
     header {
@@ -459,4 +507,16 @@ dialog form button img { margin-left: 16px; }
     }
     footer > div:first-child { order: 2; margin-top: 40px; }
     footer > div:last-child { font-size: 15px; }
+
+    /* Первый квадрат (фиолетовый) - левый верхний */
+    picture::before {
+        display: none;
+    }
+
+    /* Второй квадрат (розово-красный) - правый нижний */
+    picture::after {
+        display: none;
+
+    }
 }
+
