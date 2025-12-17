@@ -58,16 +58,12 @@
         <div>
             <h2>строим проекты, <br>которым <mark>нет равных</mark></h2>
 
-            <picture class="mobile-image">
-                <source srcset="public/img/FirstScreen_Img_Mobile@1x.webp 1x, public/img/FirstScreen_Img_Mobile@2x.webp 2x" type="image/webp">
-                <img src="public/img/FirstScreen_Img_Mobile.jpg" alt="Интерьер мобильная версия">
-            </picture>
             <p>Компания «Отделстрой» работает в сфере строительства в Санкт-Петербурге и области с 1994 года.</p>
 
             <p>Мы счастливы предлагать людям и обществу комфортные условия для жизни. В нашем портфеле — более миллиона квадратных метров жилья и объектов социальной инфраструктуры. Нашими клиентам стали более 15 тысяч семей, которые получили квартиры в срок, либо досрочно.</p>
 
             <div class="actions">
-                <button type="button" >ВЫБРАТЬ КВАРТИРУ</button>
+                <button type="button">ВЫБРАТЬ КВАРТИРУ</button>
                 <a href="#">
                     НАЙТИ БЛИЖАЙШИЙ ОФИС
                     <img src="public/icons/Link_Icon_Dark.svg" alt="">
@@ -75,12 +71,19 @@
             </div>
         </div>
 
-        <figure>
-            <picture>
-                <source srcset="public/img/FirstScreen_Img@1x.webp 1x, public/img/FirstScreen_Img@2x.webp 2x" type="image/webp">
-                <img src="public/img/FirstScreen_Img.jpg" alt="Интерьер">
-            </picture>
-        </figure>
+        <picture>
+            <!-- Для мобильных устройств -->
+            <source media="(max-width: 600px)"
+                    srcset="public/img/FirstScreen_Img_Mobile@1x.webp 1x, public/img/FirstScreen_Img_Mobile@2x.webp 2x"
+                    type="image/webp">
+            <source media="(max-width: 600px)"
+                    srcset="public/img/FirstScreen_Img_Mobile.jpg">
+
+            <!-- Для десктопных устройств -->
+            <source srcset="public/img/FirstScreen_Img@1x.webp 1x, public/img/FirstScreen_Img@2x.webp 2x"
+                    type="image/webp">
+            <img src="public/img/FirstScreen_Img.jpg" alt="Интерьер современной квартиры в жилом комплексе Новый Лесснер">
+        </picture>
     </section>
 
     <section class="stats">

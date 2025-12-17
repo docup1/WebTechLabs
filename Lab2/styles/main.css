@@ -115,49 +115,6 @@ header button img { margin-left: 16px; }
 header button:hover { opacity: 0.8; }
 
 /* --- ОСНОВНОЙ КОНТЕНТ --- */
-
-picture {
-    position: relative;
-    display: block;
-    overflow: visible;
-}
-
-picture img {
-    position: relative;
-    z-index: 1;
-    display: block;
-    width: 100%;
-}
-
-/* Псевдоэлементы создаются на picture, а не на img */
-picture::before,
-picture::after {
-    content: "";
-    position: absolute;
-    border-radius: 32px;
-    z-index: 0;
-}
-
-/* Первый квадрат (фиолетовый) - левый верхний */
-picture::before {
-    width: 100%;
-    height: 100%;
-    background: #DFEBEF;
-    bottom: 0;
-    right: 0;
-    transform: rotate(-10deg);
-}
-
-/* Второй квадрат (розово-красный) - правый нижний */
-picture::after {
-    width: 100%;
-    height: 100%;
-    background: #FBF0EA;
-    bottom: 0;
-    right: 0;
-    transform: rotate(-5deg);
-}
-
 main {
     padding: 0 36px;
 }
@@ -186,10 +143,12 @@ main > h1 {
     display: flex;
     justify-content: space-between;
     margin-bottom: 88px;
+    gap: 48px;
 }
 
 .hero > div:first-child {
     max-width: 558px;
+    flex: 1;
 }
 
 .hero h2 {
@@ -197,16 +156,12 @@ main > h1 {
     font-size: 44px;
     font-weight: normal;
     line-height: 1;
+    margin-bottom: 32px;
 }
 
 mark {
     background: transparent;
     color: var(--color-accent);
-}
-
-/* Скрываем мобильную картинку на десктопе */
-.hero .mobile-image {
-    display: none;
 }
 
 /* Параграф-лид */
@@ -225,6 +180,49 @@ mark {
     font-weight: 300;
     color: var(--color-gray);
     margin-bottom: 48px;
+}
+
+/* Картинка Hero */
+.hero picture {
+    position: relative;
+    display: inline-block;
+    margin-top: 50px;
+    min-width: 675px;
+    flex-shrink: 0;
+    height: 100%;
+}
+
+.hero picture img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 32px;
+}
+
+/* Фоновые квадраты */
+.hero picture::before,
+.hero picture::after {
+    content: "";
+    position: absolute;
+    border-radius: 32px;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+
+}
+
+.hero picture::before {
+    background: #DFEBEF;
+    transform: rotate(-10deg);
+}
+
+.hero picture::after {
+    background: #FBF0EA;
+    transform: rotate(-5deg);
 }
 
 /* Блок кнопок внутри Hero */
@@ -252,13 +250,6 @@ mark {
 }
 .hero .actions a:hover { opacity: 0.6; }
 
-/* Картинка Hero */
-.hero figure {
-    margin: 50px 0 0 0;
-    min-width: 675px;
-    position: relative;
-}
-
 /* СЕКЦИЯ STATS */
 .stats {
     display: flex;
@@ -277,7 +268,7 @@ mark {
     padding: 0;
     margin-left: 0;
     display: flex;
-    gap: 160px; /* Отступ между элементами */
+    gap: 160px;
 }
 
 .stats strong {
@@ -348,7 +339,7 @@ dialog {
     background: transparent;
     width: 550px;
     min-height: 100%;
-    left: auto; /* Прижимаем вправо */
+    left: auto;
     right: 0;
     top: 0;
 }
@@ -366,7 +357,7 @@ dialog > button {
     padding: 0;
 }
 
-/* Контейнер контента внутри dialog (без лишних классов) */
+/* Контейнер контента внутри dialog */
 dialog > div {
     background: var(--color-white);
     height: 100%;
@@ -441,7 +432,7 @@ dialog form button img { margin-left: 16px; }
 
     header nav,
     header button,
-    header > div:first-child a:first-child, /* скрываем десктопное лого */
+    header > div:first-child a:first-child,
     header > div:last-child img,
     header > div:last-child small {
         display: none;
@@ -454,35 +445,50 @@ dialog form button img { margin-left: 16px; }
     header > div:last-child b { font-size: 12px; }
     header > div:last-child a { gap: 0; }
 
+    main {
+        padding: 0 16px;
+    }
+
     .hero,
     .stats {
         flex-direction: column;
     }
 
-    .hero figure { display: none; } /* Скрываем большую картинку */
-    .hero .mobile-image {
-        display: block;
-        margin: 0 -16px 32px; /* Вылет на края экрана */
-    }
-    picture {
-        display: none;
-    }
-    /* Псевдоэлементы для картинок */
-    picture::before,
-    picture::after {
+    .hero picture {
         display: none;
     }
 }
 
 @media (max-width: 600px) {
-    main { padding: 0 16px; }
     main > h1 { font-size: 32px; margin-bottom: 64px; }
 
     /* Hero */
-    .hero { flex-direction: column; margin-bottom: 64px; }
-    .hero h2 { font-size: 28px; margin-bottom: 32px; }
+    .hero {
+        margin-bottom: 64px;
+        gap: 32px;
+    }
 
+    .hero h2 {
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
 
+    .hero picture {
+        display: block;
+        margin: 0 -16px 32px;
+        width: calc(100% + 32px);
+        min-width: auto;
+        order: -1;
+    }
+
+    .hero picture::before,
+    .hero picture::after {
+        display: none;
+    }
+
+    .hero picture img {
+        border-radius: 0;
+    }
 
     .hero p:first-of-type { font-size: 19px; }
     .hero p:nth-of-type(2) { font-size: 18px; }
@@ -490,31 +496,43 @@ dialog form button img { margin-left: 16px; }
     .hero .actions {
         flex-direction: column;
         align-items: flex-start;
+        gap: 24px;
     }
 
     /* Статистика */
     .stats {
-        flex-direction: column;
         margin-bottom: 64px;
     }
-    .stats h2 { font-size: 28px; margin-bottom: 32px; }
+    .stats h2 {
+        font-size: 28px;
+        margin-bottom: 32px;
+        width: 100%;
+    }
 
     .stats ul {
         display: grid;
-        grid-template-columns: 1fr 1fr; /* В два столбца */
+        grid-template-columns: 1fr 1fr;
         gap: 20px;
     }
+
     .stats strong { font-size: 60px; }
-    .stats p { font-size: 20px; width: auto; }
+    .stats p { font-size: 20px; max-width: none; }
 
     /* Футер */
     footer {
         flex-direction: column;
         border-radius: 20px 20px 0 0;
         padding: 40px 16px;
+        position: relative;
     }
-    footer > div:first-child { order: 2; margin-top: 40px; }
-    footer > div:last-child { font-size: 15px; }
 
+    footer > div:first-child {
+        order: 2;
+        margin-top: 40px;
+    }
 
+    footer > div:last-child {
+        font-size: 15px;
+        max-width: none;
+    }
 }
