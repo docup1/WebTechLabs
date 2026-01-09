@@ -10,17 +10,12 @@
 <body>
 
 <header>
-    <div>
-        <a href="#">
-            <img src="public/icons/Logo.svg" alt="Логотип ЖК «Новый Лесснер»">
-        </a>
-        <a href="#" aria-label="Меню">
-            <img src="public/icons/Burger_Icon.svg" alt="Меню">
-        </a>
-    </div>
-
-    <a href="#" class="mobile-logo">
+    <a href="#" class="logo">
         <img src="public/icons/Logo.svg" alt="Логотип ЖК «Новый Лесснер»">
+    </a>
+    
+    <a href="#" class="burger-menu" aria-label="Меню">
+        <img src="public/icons/Burger_Icon.svg" alt="Меню">
     </a>
 
     <nav>
@@ -32,15 +27,15 @@
         </ul>
     </nav>
 
-    <div>
-        <a href="tel:+78125610375">
+    <div class="header-actions">
+        <a href="tel:+78125610375" class="phone-link">
             <img src="public/icons/Enter_Icon.svg" alt="">
             <span>
                 <b>812 561-03-75</b>
                 <small>заказать звонок</small>
             </span>
         </a>
-        <button type="button" id="open-modal">
+        <button type="button" id="open-modal" class="btn-select">
             ВЫБРАТЬ КВАРТИРУ
             <img src="public/icons/Link_Icon.svg" alt="">
         </button>
@@ -63,7 +58,7 @@
             <p>Мы счастливы предлагать людям и обществу комфортные условия для жизни. В нашем портфеле — более миллиона квадратных метров жилья и объектов социальной инфраструктуры. Нашими клиентам стали более 15 тысяч семей, которые получили квартиры в срок, либо досрочно.</p>
 
             <div class="actions">
-                <button type="button">ВЫБРАТЬ КВАРТИРУ</button>
+                <button type="button" id="open-modal2">ВЫБРАТЬ КВАРТИРУ</button>
                 <a href="#">
                     НАЙТИ БЛИЖАЙШИЙ ОФИС
                     <img src="public/icons/Link_Icon_Dark.svg" alt="">

@@ -99,12 +99,12 @@
 (function() {
     const modal = document.getElementById("modal");
     const closeButton = document.getElementById("close-modal");
-    const openButton = document.getElementById("open-modal");
+    const openButtons = document.querySelectorAll('#open-modal, #open-modal2'); // Все кнопки открытия
     const form = document.querySelector("#form-incomplete form");
     const formIncomplete = document.getElementById("form-incomplete");
     const formComplete = document.getElementById("form-complete");
 
-    if (!modal || !closeButton || !openButton || !form) return;
+    if (!modal || !closeButton || !openButtons.length || !form) return;
 
     function openModal() {
         modal.style.display = "flex";
@@ -135,7 +135,11 @@
         formComplete.style.display = "flex";
     }
 
-    openButton.addEventListener("click", openModal);
+    // Добавляем обработчики для всех кнопок открытия
+    openButtons.forEach(button => {
+        button.addEventListener("click", openModal);
+    });
+
     closeButton.addEventListener("click", closeModal);
     form.addEventListener("submit", handleSubmit);
 
