@@ -3,60 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Веб-технологии — Лабораторная работа №3</title>
+    <title>SVG Pattern Generator</title>
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-<div class="container">
-    <svg width="525" height="603" viewBox="0 0 525 603" fill="none" xmlns="http://www.w3.org/2000/svg" id="interactive-svg">
-        <defs>
-            <filter id="filter0_d_13_132" x="0" y="0" width="524.749" height="602.1" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset dx="26" dy="27"/>
-                <feGaussianBlur stdDeviation="1.25"/>
-                <feComposite in2="hardAlpha" operator="out"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_13_132"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_13_132" result="shape"/>
-            </filter>
 
-            <clipPath id="clip0_13_132">
-                <rect y="52.7527" width="436.104" height="523.693" transform="rotate(-6.94772 0 52.7527)" fill="white"/>
+<section class="canvas-container">
+    <svg width="525" height="603" viewBox="0 0 525 603" xmlns="http://www.w3.org/2000/svg" id="main-svg">
+        <defs>
+            <clipPath id="pattern-clip">
+                <path d="M396.197 42.1559L45.7537 84.8604L88.4883 435.551L438.932 392.847Z" />
             </clipPath>
 
-            <!-- Фильтры для эффектов -->
-            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
-                <feFlood flood-color="white" flood-opacity="0.8" result="glowColor"/>
-                <feComposite in="glowColor" in2="blur" operator="in" result="glow"/>
-                <feMerge>
-                    <feMergeNode in="glow"/>
-                    <feMergeNode in="SourceGraphic"/>
-                </feMerge>
+            <filter id="element-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="1" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
         </defs>
 
-        <g filter="url(#filter0_d_13_132)">
-            <g clip-path="url(#clip0_13_132)">
-                <path d="M432.901 8.05006e-06L0 52.7527L63.3478 572.6L496.249 519.848L432.901 8.05006e-06Z" fill="#FFF7EA"/>
+        <path d="M432.901 0L0 52.7527L63.3478 572.6L496.249 519.848Z" fill="#FDFCF0" stroke="#D1CEC7" stroke-width="2"/>
 
-                <!-- Синий квадрат (фон) -->
-                <path id="blue-bg" d="M396.197 42.1559L45.7537 84.8604L88.4883 435.551L438.932 392.847L396.197 42.1559Z" fill="#0065B3" style="cursor: pointer;"/>
+        <path id="canvas-bg" d="M396.197 42.1559L45.7537 84.8604L88.4883 435.551L438.932 392.847Z" fill="#005A9C" style="cursor: pointer;"/>
 
-                <!-- Группа для узоров -->
-                <g id="patterns-container" filter="url(#glow)"></g>
-            </g>
-            <rect x="2.78405" y="54.9319" width="431.104" height="518.693" transform="rotate(-6.94772 2.78405 54.9319)" stroke="#ABA7A7" stroke-width="5" shape-rendering="crispEdges"/>
-        </g>
+        <g id="dynamic-layer" clip-path="url(#pattern-clip)" filter="url(#element-glow)"></g>
     </svg>
-</div>
+</section>
 
-<button class="change-btn" id="changeButton">Сгенерировать новый узор</button>
-
-<div class="pattern-info" id="patternInfo">Текущий узор: базовый</div>
+<section class="ui">
+    <button id="generateBtn" class="btn">Обновить узор</button>
+    <p id="status">Кликните на кнопку или синее поле</p>
+</section>
 
 <script src="scripts/main.js"></script>
-
 </body>
 </html>
