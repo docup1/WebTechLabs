@@ -352,6 +352,7 @@ dialog {
     left: auto;
     right: 0;
     top: 0;
+    overflow: visible;
 }
 
 dialog::backdrop {
@@ -531,6 +532,13 @@ dialog form button img { margin-left: 16px; }
         margin: 0;
         padding: 0;
 
+    }
+    dialog > button {
+        left: auto;        
+        right: 16px;
+        top: 16px;         
+        position: absolute; 
+        z-index: 10;     
     }
     dialog > div{
         border-radius: 0px;
