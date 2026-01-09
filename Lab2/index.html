@@ -67,17 +67,23 @@
         </div>
 
         <picture>
-            <!-- Для мобильных устройств -->
+            <!-- WebP версии -->
             <source media="(max-width: 600px)"
-                    srcset="public/img/FirstScreen_Img_Mobile@1x.webp 1x, public/img/FirstScreen_Img_Mobile@2x.webp 2x"
+                    srcset="public/img/FirstScreen_Img_Mobile@1x.webp 1x, 
+                    public/img/FirstScreen_Img_Mobile@2x.webp 2x"
                     type="image/webp">
-            <source media="(max-width: 600px)"
-                    srcset="public/img/FirstScreen_Img_Mobile.jpg">
+            <source srcset="public/img/FirstScreen_Img@1x.webp 1x, 
+                    public/img/FirstScreen_Img@2x.webp 2x"
+                    type="image/webp">
 
-            <!-- Для десктопных устройств -->
-            <source srcset="public/img/FirstScreen_Img@1x.webp 1x, public/img/FirstScreen_Img@2x.webp 2x"
-                    type="image/webp">
-            <img src="public/img/FirstScreen_Img.jpg" alt="Интерьер современной квартиры в жилом комплексе Новый Лесснер">
+            <!-- JPEG fallback для всех случаев -->
+            <source media="(max-width: 600px)"
+                    srcset="public/img/FirstScreen_Img_Mobile.jpg"
+                    type="image/jpeg">
+
+            <img src="public/img/FirstScreen_Img.jpg"
+                 srcset="public/img/FirstScreen_Img@2x.jpg 2x"
+                 alt="Интерьер современной квартиры в жилом комплексе Новый Лесснер">
         </picture>
     </section>
 
